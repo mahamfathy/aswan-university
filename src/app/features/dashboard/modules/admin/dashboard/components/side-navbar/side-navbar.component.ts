@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 interface IMenu {
   name: string;
@@ -7,6 +8,8 @@ interface IMenu {
 }
 @Component({
   selector: 'app-side-navbar',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './side-navbar.component.html',
   styleUrl: './side-navbar.component.scss',
 })
