@@ -1,0 +1,65 @@
+@import "../../../../assets/sass/abstracts/variables";
+header {
+  height: 80px;
+  background-color: #68c4e7;
+  box-shadow: 1px 1px 10px 1px #0000003d;
+}
+
+hr {
+  color: #e5e5e5;
+  margin-bottom: 45px;
+}
+
+ul {
+  list-style: none;
+  .btn-trans {
+    color: #fff;
+    border: none;
+    width: 35px;
+    height: 30px;
+    background-color: #3252df;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    &:hover {
+      background-color: #152c5b;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #3252df;
+  transition: all 0.3 ease;
+  &:hover {
+    color: #3252df;
+    font-weight: 500;
+  }
+  &.active {
+    color: #3252df;
+    font-weight: 500;
+  }
+}
+.btn-navbar {
+  background-color: #3252df !important;
+  border-color: #3252df;
+  color: white !important;
+  box-shadow: 0px 8px 10px 0px #3252df4d;
+}
+p {
+  margin: 0;
+  color: #1f384c;
+}
+.theme-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
