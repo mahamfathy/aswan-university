@@ -1,9 +1,9 @@
-@import '../../../../assets/sass/abstracts/variables';
+// @import '../../../../assets/sass/abstracts/variables';
 .mat-table {
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   .mat-mdc-header-row {
-    background-color: #E2E5EB;
+    background-color: #e2e5eb;
     color: black;
   }
 }
@@ -15,6 +15,6 @@
 }
 
 .chip {
-  background-color: $light-blue !important;
+  // background-color: $light-blue !important;
   color: white !important;
 }

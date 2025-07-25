@@ -6,11 +6,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 // import { NgxStripeModule } from 'ngx-stripe';
 import { SharedModule } from '../../../../../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
 
 @NgModule({
-  declarations: [
-    // HomeComponent
-  ],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

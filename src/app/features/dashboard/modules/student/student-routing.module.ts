@@ -4,40 +4,32 @@ import { RouterModule, Routes } from '@angular/router';
 // import { exploreRoomWithFiltersResolver } from './resolvers/explore-room-with-filters.resolver';
 // import { favoriteRoomsResolver } from './resolvers/favorite-rooms.resolver';
 // import { RoomDetailsComponent } from './home/components/room-details/room-details.component';
-import { StudentComponent } from './student.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: '',
-    component: StudentComponent,
-    children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      {
-        path: 'home',
-        loadChildren: () =>
-          import('./home/home.module').then((m) => m.HomeModule),
-      },
-      {
-        path: 'home/:id',
-        // component: RoomDetailsComponent,
-      },
-      // {
-      //   path: 'explore',
-      //   component: ExploreComponent,
-      //   resolve: { filters: exploreRoomWithFiltersResolver },
-      // },
-      // {
-      //   path: 'favorites',
-      //   component: FavRoomsComponent,
-      //   canActivate: [userGuard],
-      //   resolve: { filters: favoriteRoomsResolver },
-      // },
-    ],
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
+  // {
+  // path: 'home/:id',
+  // component: RoomDetailsComponent,
+  // },
+  // {
+  //   path: 'explore',
+  //   component: ExploreComponent,
+  //   resolve: { filters: exploreRoomWithFiltersResolver },
+  // },
+  // {
+  //   path: 'favorites',
+  //   component: FavRoomsComponent,
+  //   canActivate: [userGuard],
+  //   resolve: { filters: favoriteRoomsResolver },
+  // },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class UserRoutingModule {}
+export class StudentRoutingModule {}
