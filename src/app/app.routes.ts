@@ -1,13 +1,9 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'student', pathMatch: 'full' },
   {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
+    path: 'student',
     loadChildren: () =>
       import('./features/dashboard/modules/student/student.module').then(
         (m) => m.StudentModule
