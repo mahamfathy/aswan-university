@@ -1,0 +1,262 @@
+<header
+  class="sticky top-0 z-50 bg-gradient-to-r from-rose-600 via-red-800 to-rose-900 text-white shadow-2xl shadow-rose-900"
+>
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-extrabold tracking-wide text-white drop-shadow-lg">
+      🏫 Nova Academy
+    </h1>
+
+    <!-- Mobile menu button -->
+    <button
+      (click)="isMenuOpen = !isMenuOpen"
+      class="md:hidden focus:outline-none text-[#F5DEB3] z-50"
+    >
+      <span class="relative block w-6 h-6">
+        <span
+          class="absolute left-0 top-1/2 w-6 h-0.5 bg-[#F5DEB3] transition-all duration-300"
+          [ngClass]="{
+            'rotate-45 translate-y-0': isMenuOpen,
+            '-translate-y-2': !isMenuOpen
+          }"
+        ></span>
+        <span
+          class="absolute left-0 top-1/2 w-6 h-0.5 bg-[#F5DEB3] transition-all duration-300"
+          [ngClass]="{
+            'opacity-0': isMenuOpen,
+            '-translate-y-0.5': !isMenuOpen
+          }"
+        ></span>
+        <span
+          class="absolute left-0 top-1/2 w-6 h-0.5 bg-[#F5DEB3] transition-all duration-300"
+          [ngClass]="{
+            '-rotate-45 translate-y-0': isMenuOpen,
+            'translate-y-2': !isMenuOpen
+          }"
+        ></span>
+      </span>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:block">
+      <ul class="flex gap-8 text-sm text-[#F5DEB3] font-medium">
+        <li>
+          <a
+            routerLink="/student/home"
+            class="hover:bg-rose-800 hover:text-white transition"
+            >الرئيسية</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/student/about"
+            class="hover:text-white hover:bg-rose-800 transition"
+            >عن الأكاديمية</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/student/departments"
+            class="hover:text-white hover:bg-rose-800 transition"
+            >الأقسام</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/student/admissions"
+            class="hover:text-white hover:bg-rose-800 transition"
+            >القبول</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/student/contact"
+            class="hover:text-white hover:bg-rose-800 transition"
+            >تواصل معنا</a
+          >
+        </li>
+        <li class="relative group hover:bg-rose-800">
+          <a
+            routerLink="/student/portal"
+            class="hover:text-white transition flex items-center gap-2 cursor-pointer"
+          >
+            البوابة الطلابية
+            <svg
+              class="w-4 h-4 transition-transform duration-300 group-hover:rotate-90"
+              fill="none"
+              stroke="#F5DEB3"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+          <ul
+            class="absolute hover:bg-rose-800 -right-4 top-full mt-2 w-56 bg-rose-900 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+          >
+            <li>
+              <a
+                routerLink="/student/portal/student-services"
+                class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+                >خدمات طلابيه</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/student/portal/faculty-services"
+                class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+                >خدمات أعضاء هيئة التدريس</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/student/portal/admin-services"
+                class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+                >خدمات الإداريين</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/student/portal/medical-services"
+                class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+                >الخدمات الطبيه</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/student/portal/parent-services"
+                class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+                >خدمات ولي الأمر</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Mobile Sidebar Navigation -->
+  <nav
+    [ngClass]="{
+      'translate-x-0': isMenuOpen,
+      '-translate-x-full': !isMenuOpen
+    }"
+    class="fixed top-0 left-0 h-full w-64 bg-rose-900 shadow-2xl shadow-rose-900 transition-transform duration-300 z-40 md:hidden"
+  >
+    <ul
+      class="flex flex-col gap-8 px-8 py-16 text-lg text-[#F5DEB3] font-medium"
+    >
+      <li>
+        <a
+          routerLink="/student/home"
+          (click)="isMenuOpen = false"
+          class="hover:text-white transition"
+          >الرئيسية</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/student/about"
+          (click)="isMenuOpen = false"
+          class="hover:text-white transition"
+          >عن الأكاديمية</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/student/departments"
+          (click)="isMenuOpen = false"
+          class="hover:text-white transition"
+          >الأقسام</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/student/admissions"
+          (click)="isMenuOpen = false"
+          class="hover:text-white transition"
+          >القبول</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/student/contact"
+          (click)="isMenuOpen = false"
+          class="hover:text-white transition"
+          >تواصل معنا</a
+        >
+      </li>
+      <li>
+        <button
+          type="button"
+          (click)="isMobileMenuOpen = !isMobileMenuOpen"
+          class="flex items-center gap-2 w-full text-left hover:text-white transition focus:outline-none"
+        >
+          البوابة الطلابية
+          <svg
+            class="w-4 h-4 transition-transform duration-300"
+            [ngClass]="{ 'rotate-90': isMobileMenuOpen }"
+            fill="none"
+            stroke="#F5DEB3"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+        <ul
+          *ngIf="isMobileMenuOpen"
+          class="mt-2 bg-rose-900 shadow-lg rounded-lg"
+        >
+          <li>
+            <a
+              routerLink="/student/portal/student-services"
+              (click)="isMenuOpen = false"
+              class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+              >خدمات طلابيه</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/student/portal/faculty-services"
+              (click)="isMenuOpen = false"
+              class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+              >خدمات أعضاء هيئة التدريس</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/student/portal/admin-services"
+              (click)="isMenuOpen = false"
+              class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+              >خدمات الإداريين</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/student/portal/medical-services"
+              (click)="isMenuOpen = false"
+              class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+              >الخدمات الطبيه</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/student/portal/parent-services"
+              (click)="isMenuOpen = false"
+              class="block px-4 py-2 text-[#F5DEB3] hover:bg-rose-800 hover:text-white transition"
+              >خدمات ولي الأمر</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
