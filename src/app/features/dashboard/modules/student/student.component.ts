@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 // import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-student',
+  standalone: false,
   templateUrl: './student.component.html',
-  styleUrl: './student.component.scss',
+  styleUrls: ['./student.component.scss'],
 })
 export class StudentComponent {
   // constructor(public themeService: ThemeService) {}

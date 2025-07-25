@@ -27,12 +27,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 // import { NgxDropzoneModule } from 'ngx-dropzone';
 import { DeleteItemComponent } from './components/delete-item/delete-item.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 import { TableComponent } from './components/table/table.component';
 @NgModule({
   declarations: [
     TableComponent,
     DeleteItemComponent,
-    // FooterComponent,
+    FooterComponent,
+    HeaderComponent,
     // UserNavbarComponent,
   ],
   imports: [
@@ -64,6 +67,7 @@ import { TableComponent } from './components/table/table.component';
     // NgxDropzoneModule,
     MatDatepickerModule,
     MatSlideToggleModule,
+    CommonModule,
   ],
   exports: [
     RouterModule,
@@ -90,11 +94,13 @@ import { TableComponent } from './components/table/table.component';
     MatDialogContent,
     MatDialogTitle,
     // NgxDropzoneModule,
-    // FooterComponent,
     MatDatepickerModule,
     MatSlideToggleModule,
     MatSlideToggleModule,
     // UserNavbarComponent,
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
   ],
 })
 export class SharedModule {}
