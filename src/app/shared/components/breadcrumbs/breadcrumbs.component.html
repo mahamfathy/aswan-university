@@ -1,0 +1,22 @@
+<nav
+  class="bg-gray-200 text-[#054F67] h-18 px-6 py-4 text-sm font-medium shadow-sm rounded-b-xl"
+>
+  <ol class="flex items-center space-x-2 rtl:space-x-reverse">
+    @for ( crumb of breadcrumbs;let last = $last; track crumb) {
+    <li>
+      @if (crumb.routerLink && !last ) {
+      <ng-container>
+        <a [routerLink]="crumb.routerLink" class="hover:underline">{{
+          crumb.label
+        }}</a>
+        <span>/</span>
+      </ng-container>
+      }
+
+      <ng-container *ngIf="!crumb.routerLink || last">
+        <span [class.font-semibold]="last">{{ crumb.label }}</span>
+      </ng-container>
+    </li>
+    }
+  </ol>
+</nav>
