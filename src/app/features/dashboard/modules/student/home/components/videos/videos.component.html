@@ -1,0 +1,27 @@
+<section class="py-8 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl text-[#054F67]">فيديوهات الجامعة</h2>
+      <div class="w-1/6 mx-auto mt-2 h-1 bg-yellow-400 rounded"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @for (video of videoContent; track video) {
+      <div>
+        <div class="text-center mb-6">
+          <h3 class="text-bold text-xl text-[#054F67]">{{ video.title }}</h3>
+          <div class="w-1/4 mx-auto mt-2 h-1 bg-yellow-400 rounded"></div>
+        </div>
+
+        <iframe
+          width="100%"
+          height="200"
+          [src]="video.url"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      }
+    </div>
+  </div>
+</section>
