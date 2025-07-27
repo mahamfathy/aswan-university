@@ -21,11 +21,12 @@ const routes: Routes = [
       // path: 'home/:id',
       // component: RoomDetailsComponent,
       // },
-      // {
-      //   path: 'explore',
-      //   component: ExploreComponent,
-      //   resolve: { filters: exploreRoomWithFiltersResolver },
-      // },
+      {
+        path: 'portal',
+        loadChildren: () =>
+          import('./modules/portal/portal.module').then((m) => m.PortalModule),
+        // resolve: { filters: exploreRoomWithFiltersResolver },
+      },
       // {
       //   path: 'favorites',
       //   component: FavRoomsComponent,

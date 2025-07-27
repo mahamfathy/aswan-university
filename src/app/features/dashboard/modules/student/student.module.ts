@@ -4,10 +4,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // import { SharedModule } from '../../shared/shared.module';
 // import { ExploreComponent } from './components/explore/explore.component';
 // import { LoginRegisterDialogComponent } from './home/components/login-register-dialog/login-register-dialog.component';
+import { NgOptimizedImage } from '@angular/common';
 import { SharedModule } from '../../../../shared/shared.module';
 import { StudentRoutingModule } from './student-routing.module';
 import { StudentComponent } from './student.component';
-
 @NgModule({
   declarations: [
     StudentComponent,
@@ -19,6 +19,7 @@ import { StudentComponent } from './student.component';
     StudentRoutingModule,
     // ExploreComponent
     SharedModule,
+    NgOptimizedImage,
     NgxPaginationModule,
   ],
 })
