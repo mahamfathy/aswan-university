@@ -1,0 +1,44 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AdminServicesComponent } from './components/admin-services/admin-services.component';
+import { FacultyServicesComponent } from './components/faculty-services/faculty-services.component';
+import { GraduatesServicesComponent } from './components/graduates-services/graduates-services.component';
+import { MedicalServicesComponent } from './components/medical-services/medical-services.component';
+import { ParentServicesComponent } from './components/parent-services/parent-services.component';
+import { StudentServicesComponent } from './components/student-services/student-services.component';
+import { PortalComponent } from './portal.component';
+// import { userGuard } from '../../core/guards/user/user.guard';
+// import { exploreRoomWithFiltersResolver } from './resolvers/explore-room-with-filters.resolver';
+// import { favoriteRoomsResolver } from './resolvers/favorite-rooms.resolver';
+// import { RoomDetailsComponent } from './home/components/room-details/room-details.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: PortalComponent,
+    children: [
+      { path: 'student-services', component: StudentServicesComponent },
+      { path: 'faculty-services', component: FacultyServicesComponent },
+      { path: 'admin-services', component: AdminServicesComponent },
+      { path: 'medical-services', component: MedicalServicesComponent },
+      { path: 'parent-services', component: ParentServicesComponent },
+      { path: 'graduates-services', component: GraduatesServicesComponent },
+      // {
+      //   path: 'portal',
+      //   component: PortalComponent,
+      // resolve: { filters: exploreRoomWithFiltersResolver },
+      // },
+      // {
+      //   path: 'favorites',
+      //   component: FavRoomsComponent,
+      //   canActivate: [userGuard],
+      //   resolve: { filters: favoriteRoomsResolver },
+    ],
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class PortalRoutingModule {}
