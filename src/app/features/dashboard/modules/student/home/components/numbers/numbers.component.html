@@ -1,0 +1,25 @@
+<section class="py-8 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl text-[#054F67]">أسوان في أرقام</h2>
+      <div class="w-1/6 mx-auto mt-2 h-1 bg-yellow-400 rounded"></div>
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-6 text-center"
+    >
+      @for (item of items; track item) {
+      <div>
+        <img
+          [src]="item.image"
+          alt="{{ item.title }}"
+          class="w-[140px] h-[140px] object-cover rounded-full mx-auto mb-2"
+        />
+        <span class="text-md font-bold text-[#054F67] block mb-1">{{
+          item.count | number
+        }}</span>
+        <h4 class="text-base font-medium text-gray-700">{{ item.title }}</h4>
+      </div>
+      }
+    </div>
+  </div>
+</section>
