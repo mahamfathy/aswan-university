@@ -22,6 +22,7 @@
     "@angular/router": "^17.3.0",
     "@fortawesome/fontawesome-free": "^7.0.0",
     "@tailwindcss/postcss": "^4.1.11",
+    "countup.js": "^2.9.0",
     "jwt-decode": "^4.0.0",
     "ngx-owl-carousel-o": "^17.0.0",
     "ngx-pagination": "^6.0.3",
