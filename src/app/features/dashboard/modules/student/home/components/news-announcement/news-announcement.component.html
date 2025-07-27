@@ -1,0 +1,64 @@
+<div class="flex justify-center space-x-4 mb-6">
+  @for (tab of tabs; track tab) {
+
+  <button
+    (click)="activeTab = tab.id"
+    [ngClass]="{
+      'bg-blue-600 text-white': activeTab === tab.id,
+      'bg-gray-200 text-gray-600': activeTab !== tab.id
+    }"
+    class="px-4 py-2 rounded-lg font-bold transition duration-300"
+  >
+    {{ tab.label }}
+  </button>
+  }
+</div>
+@for (tab of tabs; track tab) {
+
+<div>
+  @if (activeTab === tab.id ) { @if (tab.id !== 1) {
+  <div class="p-6 bg-white rounded-xl shadow-md">
+    <app-shared-card
+      [newsImage]="sharedCardImage"
+      (cardClicked)="onCardClicked()"
+      [newsTitle]="tab.title"
+      [newsDescription]="tab.description"
+    />
+    <app-shared-card
+      [newsImage]="sharedCardImage"
+      (cardClicked)="onCardClicked()"
+      [newsTitle]="tab.title"
+      [newsDescription]="tab.description"
+    />
+  </div>
+  }@else {
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 bg-yellow-50 rounded-xl shadow-md"
+    dir="rtl"
+  >
+    <div class="text-gray-900 leading-relaxed">
+      <h3 class="text-xl font-bold text-blue-700 mb-3">🎓 منح جامعة أسوان</h3>
+      <p class="text-lg">{{ tab.title }}</p>
+      <p class="mt-2 text-base">{{ tab.description }}</p>
+      <p class="mt-4">
+        تُقدم الجامعة مجموعة من المنح الدراسية التي تشمل:
+        <br /><br />
+        - 💡 منح التفوق الأكاديمي للطلاب المتميزين.<br />
+        - 🤝 دعم اجتماعي للطلاب من الأسر ذات الدخل المحدود.<br />
+        - 🌍 فرص تبادل دولي للدراسة بالخارج.<br />
+        - 🧠 منح للموهوبين والمبدعين في الابتكار والبحث العلمي.
+        <br /><br />
+        يمكن التقديم إلكترونيًا عبر بوابة الطالب مع تجهيز الأوراق المطلوبة.
+      </p>
+    </div>
+    <div>
+      <img
+        src="https://aswu.edu.eg/wp-content/uploads/2025/06/21-2-1-1.jpg"
+        alt="منح جامعة أسوان"
+        class="w-full h-auto rounded-lg shadow-sm"
+      />
+    </div>
+  </div>
+  } }
+</div>
+}
