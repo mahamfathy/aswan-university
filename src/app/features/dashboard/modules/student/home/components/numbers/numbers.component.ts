@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
+import { CountUp } from 'countup.js';
 
 @Component({
   selector: 'app-numbers',
@@ -6,7 +13,8 @@ import { Component } from '@angular/core';
   templateUrl: './numbers.component.html',
   styleUrl: './numbers.component.scss',
 })
-export class NumbersComponent {
+export class NumbersComponent implements AfterViewInit {
+  @ViewChildren('countRef') countElements!: QueryList<ElementRef>;
   items = [
     {
       image: 'assets/images/png/numbers/alumins.png',
@@ -39,4 +47,23 @@ export class NumbersComponent {
       count: 30785,
     },
   ];
+  ngAfterViewInit(): void {
+    this.countElements.forEach((el, index) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            const countUp = new CountUp(
+              el.nativeElement,
+              this.items[index].count
+            );
+            if (!countUp.error) countUp.start();
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(el.nativeElement);
+    });
+  }
 }

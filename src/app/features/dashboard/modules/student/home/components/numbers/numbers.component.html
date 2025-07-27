@@ -7,16 +7,17 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-6 text-center"
     >
-      @for (item of items; track item) {
+      @for (item of items;let index=$index; track item) {
       <div>
         <img
           [src]="item.image"
           alt="{{ item.title }}"
           class="w-[140px] h-[140px] object-cover rounded-full mx-auto mb-2"
         />
-        <span class="text-md font-bold text-[#054F67] block mb-1">{{
-          item.count | number
-        }}</span>
+        <span #countRef class="text-md font-bold text-[#054F67] block mb-1">
+          0
+        </span>
+
         <h4 class="text-base font-medium text-gray-700">{{ item.title }}</h4>
       </div>
       }
