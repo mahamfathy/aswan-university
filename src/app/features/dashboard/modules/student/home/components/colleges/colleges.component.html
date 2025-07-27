@@ -1,0 +1,27 @@
+<section>
+  <div class="container mx-auto px-4">
+    <div class="row">
+      <owl-carousel-o [options]="customOptions">
+        @for (slide of slidesStore; track slide.id) {
+
+        <ng-container>
+          <ng-template carouselSlide [id]="slide.id">
+            <div class="text-center">
+              <img
+                [src]="slide.src"
+                [alt]="slide.alt"
+                class="carousel-img w-[40px] h-[89px] object-contain"
+              />
+
+              <h5 class="mt-2 text-[#054F67]">
+                {{ slide.alt }}
+              </h5>
+            </div>
+          </ng-template>
+        </ng-container>
+
+        }
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
