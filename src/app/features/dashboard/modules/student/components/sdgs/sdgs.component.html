@@ -1,1 +1,24 @@
-<p>sdgs works!</p>
+<app-breadcrumbs
+  [breadcrumbs]="[
+    { label: 'Home', routerLink: '/home' },
+    { label: 'SDGs', routerLink: '/sdgs' }
+  ]"
+/>
+<div class="flex justify-center py-6">
+  <img [src]="header" alt="SDGs Main" class="rounded-xl shadow-lg" />
+</div>
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 px-4 pb-8">
+  @for (img of sdgsImages; track img) {
+  <div
+    class="bg-white rounded-xl overflow-hidden shadow-md p-2 flex justify-center transition duration-300 border-2 border-transparent hover:border-[#054F67] hover:scale-105"
+  >
+    <img
+      [src]="img"
+      alt="SDGs Item"
+      class="w-[155px] h-[155px] object-cover rounded-lg transition duration-300"
+    />
+  </div>
+
+  }
+</div>
