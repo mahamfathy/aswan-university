@@ -1,29 +1,39 @@
-img {
-  height: 2rem;
+footer {
+  background-image: url("/assets/images/jpg/footer.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-position-y: center;
+  padding: 25px 0 0px 0;
+  background-color: #294a70b8;
+  border-top: 12px solid transparent !important;
+  border-image: url(https://aswu.edu.eg/wp-content/uploads/border.jpg) 55 round !important;
 }
-
-h3 {
-  font-size: 18px;
-  margin-bottom: 35px;
+h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: right;
 }
-
-.desc,
-a,
-.copyright {
-  color: #b0b0b0;
-  margin-top: 26px;
-}
-
-.desc,
-a {
-  font-size: 17px;
-}
-
-ul li {
-  margin-bottom: 8px;
-}
-
-hr {
-  color: #e5e5e5;
-  margin: 45px 0;
+.footer-widget-area ul li {
+  position: relative;
+  padding-left: 1.4rem;
+  text-align: right;
+  a {
+    transition: all 0.3s ease;
+    &:hover {
+      color: #feffffd8;
+      text-decoration: underline;
+    }
+  }
+  &::before {
+    color: #ffab1f;
+    content: "\f100";
+    font-family: "FontAwesome";
+    font-size: 0.6rem;
+    position: absolute;
+    right: -0.9rem;
+    top: 0.2rem;
+  }
 }
