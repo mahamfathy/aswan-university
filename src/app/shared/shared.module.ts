@@ -1,4 +1,4 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,9 +26,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 // import { NgxDropzoneModule } from 'ngx-dropzone';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LogoComponent } from './components/logo/logo.component';
 import { TableComponent } from './components/table/table.component';
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { TableComponent } from './components/table/table.component';
     DeleteItemComponent,
     FooterComponent,
     HeaderComponent,
-    // UserNavbarComponent,
+    LogoComponent,
+    BreadcrumbsComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +62,6 @@ import { TableComponent } from './components/table/table.component';
     MatPaginatorModule,
     MatSortModule,
     MatChipsModule,
-    NgFor,
     MatDialogActions,
     MatDialogClose,
     MatDialogContent,
@@ -101,6 +103,8 @@ import { TableComponent } from './components/table/table.component';
     CommonModule,
     HeaderComponent,
     FooterComponent,
+    LogoComponent,
+    BreadcrumbsComponent,
   ],
 })
 export class SharedModule {}
