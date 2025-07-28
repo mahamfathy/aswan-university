@@ -4,7 +4,7 @@
   <button
     (click)="activeTab = tab.id"
     [ngClass]="{
-      'bg-blue-600 text-white': activeTab === tab.id,
+      'bg-[#054F67] text-white': activeTab === tab.id,
       'bg-gray-200 text-gray-600': activeTab !== tab.id
     }"
     class="px-4 py-2 rounded-lg font-bold transition duration-300"
@@ -17,7 +17,13 @@
 
 <div>
   @if (activeTab === tab.id ) { @if (tab.id !== 1) {
-  <div class="p-6 bg-white rounded-xl shadow-md">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto p-8">
+    <app-shared-card
+      [newsImage]="sharedCardImage"
+      (cardClicked)="onCardClicked()"
+      [newsTitle]="tab.title"
+      [newsDescription]="tab.description"
+    />
     <app-shared-card
       [newsImage]="sharedCardImage"
       (cardClicked)="onCardClicked()"
@@ -31,6 +37,7 @@
       [newsDescription]="tab.description"
     />
   </div>
+
   }@else {
   <div
     class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 bg-yellow-50 rounded-xl shadow-md"
