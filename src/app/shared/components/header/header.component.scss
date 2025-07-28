@@ -1,5 +1,14 @@
 header {
   border-bottom: 12px solid transparent;
-  border-image: url("https://aswu.edu.eg/wp-content/uploads/border.jpg") 55
-    round;
+  background-image: url("/assets/images/jpg/footer.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-position-y: center;
+  background-color: #294a70b8;
+  border-image: url(https://aswu.edu.eg/wp-content/uploads/border.jpg) 55 round;
+}
+li {
+  text-align: center;
 }
