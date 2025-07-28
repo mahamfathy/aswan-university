@@ -1,0 +1,17 @@
+<section class="mx-auto">
+  <app-breadcrumbs
+    [breadcrumbs]="[
+      { label: 'Home', routerLink: '/home' },
+      { label: 'Services', routerLink: '/services' }
+    ]"
+  />
+  <div class="grid justify-items-center grid-cols-4 gap-4 px-32 my-16">
+    @for (service of services; track service) {
+
+    <app-single-service
+      [service]="service"
+      (serviceClicked)="navigateToService(service.route)"
+    />
+    }
+  </div>
+</section>
