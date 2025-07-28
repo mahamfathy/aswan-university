@@ -1,7 +1,9 @@
 <header
   class="sticky top-0 z-50 bg-gradient-to-r from-[#054F67] via-[#054F67] to-[#054F67] text-white shadow-[0px_5px_11px_0px_#033D52]"
 >
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-center items-center">
+  <div
+    class="max-w-7xl mx-auto px-4 py-4 flex-row-reverse flex justify-center sm:justify-end items-center"
+  >
     <!-- Mobile menu button -->
     <button
       (click)="isMenuOpen = !isMenuOpen"
@@ -34,7 +36,9 @@
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:block">
-      <ul class="flex gap-8 text-sm text-[#F5DEB3] font-medium">
+      <ul
+        class="flex gap-6 flex-wrap justify-center text-sm text-[#F5DEB3] font-medium"
+      >
         <li>
           <a
             routerLink="/home"
@@ -46,29 +50,102 @@
           <a
             routerLink="/about"
             class="hover:text-white hover:bg-[#033D52] transition"
-            >عن الأكاديمية</a
-          >
+            >عن الجامعة
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
         </li>
         <li>
           <a
             routerLink="/departments"
             class="hover:text-white hover:bg-[#033D52] transition"
-            >الأقسام</a
-          >
+            >الأقسام
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
+        </li>
+        <li>
+          <a
+            routerLink="/faculties"
+            class="hover:text-white hover:bg-[#033D52] transition"
+            >الكليات والبرامج
+
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
+        </li>
+        <li>
+          <a
+            routerLink="/search"
+            class="hover:text-white hover:bg-[#033D52] transition"
+            >البحث العلمي
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/services"
+            class="hover:text-white hover:bg-[#033D52] transition"
+            >الخدمات
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
+        </li>
+        <li>
+          <a
+            routerLink="/news"
+            class="hover:text-white hover:bg-[#033D52] transition"
+            >الأخبار
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
+        </li>
+        <li>
+          <a
+            routerLink="/life"
+            class="hover:text-white hover:bg-[#033D52] transition"
+            >الحياة الجامعية
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
+        </li>
+        <li>
+          <a
+            routerLink="/departments"
+            class="hover:text-white hover:bg-[#033D52] transition"
+            >الأقسام
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
         </li>
         <li>
           <a
             routerLink="/admissions"
             class="hover:text-white hover:bg-[#033D52] transition"
-            >القبول</a
-          >
+            >القبول
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
         </li>
         <li>
           <a
             routerLink="/contact"
             class="hover:text-white hover:bg-[#033D52] transition"
-            >تواصل معنا</a
-          >
+            >تواصل معنا
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
+            ></i
+          ></a>
         </li>
         <li class="relative group hover:bg-[#033D52]">
           <a
@@ -76,19 +153,9 @@
             class="hover:text-white transition flex items-center gap-2 cursor-pointer"
           >
             البوابة الطلابية
-            <svg
-              class="w-4 h-4 transition-transform duration-300 group-hover:rotate-90"
-              fill="none"
-              stroke="#F5DEB3"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <i
+              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs transition-transform duration-300 group-hover:rotate-180"
+            ></i>
           </a>
           <ul
             class="absolute hover:bg-[#033D52] -right-4 top-full mt-2 w-56 bg-[#054F67] shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
