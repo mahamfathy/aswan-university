@@ -1,12 +1,11 @@
 <div
   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 p-12 mt-8 text-center"
 >
+  @for (card of portalServiceCards; track card) {
   <a
-    *ngFor="let card of portalServiceCards"
     [routerLink]="card.path"
     class="block bg-white rounded-xl shadow-lg hover:scale-105 transition-transform p-6 border border-gray-100"
   >
-    <!-- أيقونة داخل دائرة -->
     <div
       class="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
       [ngClass]="card.color"
@@ -14,12 +13,11 @@
       <i [class]="card.icon" class="text-white text-2xl"></i>
     </div>
 
-    <!-- العنوان -->
     <h2 class="text-lg font-bold tracking-wide mb-2 text-gray-800">
       {{ card.title }}
     </h2>
 
-    <!-- الوصف -->
     <p class="text-sm text-gray-500">اضغط للدخول إلى صفحة {{ card.title }}</p>
   </a>
+  }
 </div>
