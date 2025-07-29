@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { SharedModule } from '../../../../../../../shared/shared.module';
 
 interface IMenu {
@@ -10,7 +10,7 @@ interface IMenu {
 @Component({
   selector: 'app-side-navbar',
   standalone: true,
-  imports: [RouterModule, SharedModule],
+  imports: [SharedModule],
   templateUrl: './side-navbar.component.html',
   styleUrl: './side-navbar.component.scss',
 })
