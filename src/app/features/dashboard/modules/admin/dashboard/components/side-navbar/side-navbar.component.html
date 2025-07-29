@@ -1,24 +1,41 @@
-<aside
-  class="sidebar h-100"
-  (mouseleave)="isExpanded = false"
-  (mouseenter)="isExpanded = true"
+<button
+  class="fixed top-0 left-0 h-[42px] text-left z-50 py-0 px-2 md:hidden text-white bg-[#075169]"
+  (click)="isMenuOpen = !isMenuOpen"
 >
-  <ul>
-    <ng-container *ngFor="let item of navItems">
-      <li class="py-3">
-        <a
-          class="logout"
-          [routerLink]="item.route"
-          routerLinkActive="active"
-          #rla="routerLinkActive"
-        >
-          <i class="material-icons">{{ item.icon }}</i>
-          @if (isExpanded ) {
-          <span class="nav-text">{{ item.name }}</span>
+  <span
+    class="material-icons inline-block transition-transform duration-300 ease-in-out"
+    [ngClass]="{
+      'rotate-180 scale-110': isMenuOpen,
+      'rotate-0 scale-100': !isMenuOpen
+    }"
+  >
+    {{ isMenuOpen ? "close" : "menu" }}
+  </span>
+</button>
 
-          }
-        </a>
-      </li>
-    </ng-container>
-  </ul>
+<aside
+  class="fixed top-0 left-0 h-full bg-[#075169] text-white p-4 shadow-lg z-40 transform transition-transform duration-300 w-64 sm:w-52 -translate-x-full md:translate-x-0"
+  [ngClass]="{ '-translate-x-0': isMenuOpen, 'md:-translate-x-0': true }"
+>
+  <div class="flex flex-col items-center mb-2">
+    <img
+      [src]="imageUrl"
+      alt="صورة البروفايل"
+      class="w-14 h-14 rounded-full border-4 border-white mb-4 object-cover"
+    />
+    <h2 class="text-lg font-semibold">مرحبا، Maha</h2>
+  </div>
+
+  <nav class="flex flex-col space-y-2">
+    @for (item of navItems; track item) {
+    <a
+      [routerLink]="item.route"
+      (click)="isMenuOpen = false"
+      class="flex items-center space-x-3 rtl:space-x-reverse hover:bg-[#054a58] px-4 py-2 rounded transition-colors"
+    >
+      <span class="material-icons text-white text-xl">{{ item.icon }}</span>
+      <span class="text-sm md:text-base lg:text-lg">{{ item.name }}</span>
+    </a>
+    }
+  </nav>
 </aside>

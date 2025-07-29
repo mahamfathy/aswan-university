@@ -1,55 +1,72 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { SharedModule } from '../../../../../../../shared/shared.module';
 
 interface IMenu {
   name: string;
   icon: string;
-  route: string;
+  route: any;
 }
 @Component({
   selector: 'app-side-navbar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, SharedModule],
   templateUrl: './side-navbar.component.html',
   styleUrl: './side-navbar.component.scss',
 })
 export class SideNavbarComponent {
-  isExpanded: boolean = false;
-  @Output() toggle: EventEmitter<boolean> = new EventEmitter<boolean>();
+  imageUrl = 'assets/images/avatar.avif';
+  isMenuOpen: boolean = false;
   navItems: IMenu[] = [
     {
-      name: 'Home',
+      name: 'الرئيسية',
       icon: 'home',
-      route: '/admin/dashboard/home',
+      route: 'home',
     },
     {
-      name: 'Users',
-      icon: 'people',
-      route: '/admin/dashboard/users',
+      name: 'الإشعارات',
+      icon: 'notifications',
+      route: 'notifications',
     },
     {
-      name: 'Facilities',
-      icon: 'room_preferences',
-      route: '/admin/dashboard/facilities',
+      name: 'الطلبات',
+      icon: 'assignment',
+      route: 'requests',
     },
     {
-      name: 'Rooms',
-      icon: 'bed',
-      route: '/admin/dashboard/rooms',
+      name: 'منح الوافدين',
+      icon: 'school',
+      route: 'scholarships',
     },
     {
-      name: 'Ads',
-      icon: 'sell',
-      route: '/admin/dashboard/ads',
+      name: 'التقارير',
+      icon: 'bar_chart',
+      route: 'reports',
     },
     {
-      route: 'booking-facilities',
-      name: 'Booking facilities',
-      icon: 'book_online',
+      name: 'الخدمات الإلكترونية',
+      icon: 'settings',
+      route: 'services',
+    },
+    {
+      name: 'الأخبار',
+      icon: 'article',
+      route: 'news',
+    },
+    {
+      name: 'استقبال الآراء',
+      icon: 'feedback',
+      route: 'feedback',
+    },
+    {
+      name: 'تسجيل الخروج',
+      icon: 'logout',
+      route: '/auth',
     },
   ];
-  toggleSidebar(): void {
-    this.isExpanded = !this.isExpanded;
-    this.toggle.emit();
+  constructor(private router: Router) {}
+  logout() {
+    console.log('Logging out...');
+    // this.router.navigate(['/auth']);
   }
 }
