@@ -14,4 +14,7 @@ export class NewsService {
   addNews(news: NewsItem) {
     return this.http.post<NewsItem>(this.apiUrl, news);
   }
+  editNews(news: NewsItem) {
+    return this.http.put<NewsItem>(`${this.apiUrl}/${news.id}`, news);
+  }
 }
