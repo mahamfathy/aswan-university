@@ -1,52 +1,67 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { jwtDecode } from 'jwt-decode';
-import { Observable } from 'rxjs';
-import { IAuthRes, ILoginApiResponse } from '../interfaces/IAuthRes';
-import { ILogin } from '../interfaces/ILogin';
-import { IRegister } from '../interfaces/IRegister';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  role: string | null = '';
-
-  constructor(private _httpClient: HttpClient) {
-    if (localStorage.getItem('token') !== null) this.getProfile();
-  }
-  getProfile() {
-    let token: any = localStorage.getItem('token');
-    let decode: any = jwtDecode(token);
-    localStorage.setItem('role', decode.role);
-    localStorage.setItem('email', decode.email);
-    this.getRole();
-  }
-  getRole() {
-    if (
-      localStorage.getItem('token') !== null &&
-      localStorage.getItem('role') !== null
-    ) {
-      this.role = localStorage.getItem('role');
-    }
-  }
-
-  login(data: ILogin): Observable<ILoginApiResponse> {
-    return this._httpClient.post<ILoginApiResponse>('auth/login', data);
-  }
-  register(data: IRegister): Observable<IAuthRes> {
-    return this._httpClient.post<IAuthRes>('auth/register', data);
-  }
-  // forgetPassword(data: IResetPassword): Observable<IAuthRes> {
-  //   return this._httpClient.post<IAuthRes>("auth/forgot-password", data);
+  // private userSubject = new BehaviorSubject<User | null>(null);
+  // private roleSubject = new BehaviorSubject<string | null>(null);
+  // constructor(
+  //   private http: HttpClient,
+  //   private helperService: HelperService,
+  //   private _helperService: HelperService
+  // ) {
+  //   this.loadUserFromLocalStorage();
   // }
-  // resetPassword(data: IRequestResetPassword): Observable<IAuthRes> {
-  //   return this._httpClient.post<IAuthRes>("auth/reset-password", data);
+  // get user$() {
+  //   return this.userSubject.asObservable();
   // }
-  // changePassword(data: IChangePassword): Observable<IAuthRes> {
-  //   return this._httpClient.post<IAuthRes>("auth/change-password", data);
+  // get role() {
+  //   return this.roleSubject.asObservable();
   // }
-  logout(): Observable<any> {
-    return this._httpClient.get('auth/logout');
-  }
+  // // getRole() {
+  // //   return this.roleSubject.getValue();
+  // // }
+  // get currentLang(): string | null {
+  //   return localStorage.getItem('lang');
+  // }
+  // updateUser(user: User | null): void {
+  //   this.userSubject.next(user);
+  //   this.roleSubject.next(user?.role || null);
+  // }
+  // private loadUserFromLocalStorage(): void {
+  //   const token = localStorage.getItem('token');
+  //   const role = localStorage.getItem('role');
+  //   const userName = localStorage.getItem('userName');
+  //   if (token && role && userName) {
+  //     const user: User = {
+  //       _id: localStorage.getItem('userId') || '',
+  //       userName,
+  //       role,
+  //     };
+  //     this.updateUser(user);
+  //   }
+  // }
+  // onLogin(data: ILogin): Observable<IApiResponse> {
+  //   return this.http.post<IApiResponse>('admin/users/login', data);
+  // }
+  // onRegister(data: FormData) {
+  //   return this.http.post('portal/users', data);
+  // }
+  // onLogout(): void {
+  //   localStorage.removeItem('token');
+  //   localStorage.removeItem('role');
+  //   localStorage.removeItem('userId');
+  //   localStorage.removeItem('userName');
+  //   this.updateUser(null);
+  // }
+  // isLoggedIn(): boolean {
+  //   return !!this.userSubject.getValue();
+  // }
+  // getAdmin(id: string): Observable<IApiResponse> {
+  //   return this.http.get<IApiResponse>('admin/users/' + id);
+  // }
+  // getUser(id: string): Observable<IApiResponse> {
+  //   return this.http.get<IApiResponse>('portal/users/' + id);
+  // }
 }

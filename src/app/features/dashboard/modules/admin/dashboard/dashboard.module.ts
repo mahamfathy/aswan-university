@@ -2,22 +2,21 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // import { NgChartsModule } from 'ng2-charts';
-// import { SharedModule } from '../../../shared/shared.module';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { SharedModule } from '../../../../../shared/shared.module';
+import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardComponent } from './dashboard.component';
 @NgModule({
   declarations: [
-    // DashboardComponent,
-    // HeaderComponent,
-    // SideNavbarComponent,
-    // HomeComponent,
-    ChangePasswordComponent,
+    DashboardComponent,
+    // ChangePasswordComponent,
     // ProfileComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    // , SharedModule, NgChartsModule
+    SharedModule,
+    SideNavbarComponent,
   ],
 })
 export class DashboardModule {}

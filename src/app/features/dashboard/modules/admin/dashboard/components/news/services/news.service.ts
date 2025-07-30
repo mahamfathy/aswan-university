@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NewsItem } from '../interfaces/news-item.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -7,4 +8,10 @@ import { Injectable } from '@angular/core';
 export class NewsService {
   private apiUrl = 'http://localhost:3000/news';
   constructor(private http: HttpClient) {}
+  getNews() {
+    return this.http.get<NewsItem[]>(this.apiUrl);
+  }
+  addNews(news: NewsItem) {
+    return this.http.post<NewsItem>(this.apiUrl, news);
+  }
 }
