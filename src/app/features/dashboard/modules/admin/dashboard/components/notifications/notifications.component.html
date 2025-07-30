@@ -1,1 +1,24 @@
-<p>notifications works!</p>
+<section class="m-8">
+  <h1 class="text-3xl font-bold text-[#075169]">
+    مرحبًا بك في صفحة الإشعارات الخاصة بالمستخدم
+  </h1>
+  <p class="text-gray-700 text-base">
+    هذه الصفحة تحتوي على مجموعة من الإشعارات والمعلومات الهامة الخاصة بالمستخدم.
+    يرجى متابعة التنبيهات بعناية لضمان تجربة مستخدم مثالية.
+  </p>
+  @for (note of notifications; track note) {
+
+  <div
+    class="p-4 border-l-4 rounded p-8 m-4"
+    [ngClass]="{
+      'bg-blue-100 border-blue-500 text-blue-700': note.type === 'info',
+      'bg-yellow-100 border-yellow-500 text-yellow-700':
+        note.type === 'warning',
+      'bg-green-100 border-green-500 text-green-700': note.type === 'success'
+    }"
+  >
+    <h3 class="text-lg font-semibold">{{ note.title }}</h3>
+    <p class="text-sm">{{ note.message }}</p>
+  </div>
+  }
+</section>
