@@ -17,4 +17,7 @@ export class NewsService {
   editNews(news: NewsItem) {
     return this.http.put<NewsItem>(`${this.apiUrl}/${news.id}`, news);
   }
+  deleteNews(news: NewsItem) {
+    return this.http.delete<NewsItem>(`${this.apiUrl}/${news.id}`);
+  }
 }
