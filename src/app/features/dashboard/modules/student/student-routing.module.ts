@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from '../../../../shared/components/page-not-found/page-not-found.component';
 import { SdgsComponent } from './components/sdgs/sdgs.component';
 import { ServicesComponent } from './components/services/services.component';
 import { StudentComponent } from './student.component';
@@ -37,6 +38,11 @@ const routes: Routes = [
         path: 'services',
         component: ServicesComponent,
       },
+      {
+        path: 'page-not-found',
+        component: PageNotFoundComponent,
+      },
+
       // {
       //   path: 'favorites',
       //   component: FavRoomsComponent,

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -21,5 +22,14 @@ export const routes: Routes = [
       import('./features/dashboard/modules/admin/admin.module').then(
         (m) => m.AdminModule
       ),
+  },
+
+  {
+    path: 'page-not-found',
+    component: PageNotFoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'page-not-found',
   },
 ];

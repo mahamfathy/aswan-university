@@ -31,6 +31,7 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TableComponent } from './components/table/table.component';
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TableComponent } from './components/table/table.component';
     HeaderComponent,
     LogoComponent,
     BreadcrumbsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -99,7 +101,7 @@ import { TableComponent } from './components/table/table.component';
     MatDatepickerModule,
     MatSlideToggleModule,
     MatSlideToggleModule,
-    // UserNavbarComponent,
+    PageNotFoundComponent,
     CommonModule,
     HeaderComponent,
     FooterComponent,
