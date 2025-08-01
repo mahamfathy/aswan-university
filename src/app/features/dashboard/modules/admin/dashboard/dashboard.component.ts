@@ -1,34 +1,53 @@
+import {
+  animate,
+  query,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: false,
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
+  animations: [
+    trigger('routeAnimations', [
+      transition('* <=> *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            animate(
+              '400ms cubic-bezier(0.4, 0.0, 0.2, 1)',
+              style({ opacity: 1 })
+            ),
+          ],
+          { optional: true }
+        ),
+
+        query(
+          ':leave',
+          [
+            animate(
+              '300ms cubic-bezier(0.4, 0.0, 0.2, 1)',
+              style({ opacity: 0 })
+            ),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class DashboardComponent {
-  // isExpand: boolean = false;
-  // profileImage: string = '';
-  // imageUrl: string = 'https://upskilling-egypt.com:3000/';
-  // constructor(private authService: AuthService) {}
-  // toggleSidebar(): void {
-  //   this.isExpand = !this.isExpand;
-  // }
-  // ngOnInit(): void {
-  //   const id = localStorage.getItem('userId');
-  //   if (id !== null) {
-  //     this.authService.getAdmin(id).subscribe({
-  //       next: (res: any) => {
-  //         if (res) {
-  //           this.profileImage = res.data.user!.profileImage;
-  //         }
-  //       },
-  //       error: (err: any) => {
-  //         console.log(err);
-  //       },
-  //     });
-  //   } else {
-  //     console.log('User ID not found in local storage');
-  //   }
-  // }
+  prepareRoute(outlet: RouterOutlet) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData['animation']
+    );
+  }
 }

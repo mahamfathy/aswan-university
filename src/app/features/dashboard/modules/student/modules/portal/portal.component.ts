@@ -16,7 +16,7 @@ export class PortalComponent {
   portalServiceCards: PortalServiceCard[] = [
     {
       title: 'الخدمات الطلابية',
-      path: 'student-services',
+      path: '/auth',
       icon: 'fas fa-user-graduate',
       color: 'bg-rose-600',
     },

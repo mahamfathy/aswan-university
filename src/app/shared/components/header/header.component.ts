@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedModule } from '../../shared.module';
 interface NavLink {
   label: string;
   route: string;
@@ -7,7 +8,8 @@ interface NavLink {
 }
 @Component({
   selector: 'app-header',
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

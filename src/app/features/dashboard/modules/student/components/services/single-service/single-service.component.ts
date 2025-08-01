@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SharedModule } from '../../../../../../../shared/shared.module';
 
 @Component({
   selector: 'app-single-service',
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule],
   templateUrl: './single-service.component.html',
   styleUrl: './single-service.component.scss',
 })

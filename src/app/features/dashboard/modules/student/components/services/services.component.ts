@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BreadcrumbsComponent } from '../../../../../../shared/components/breadcrumbs/breadcrumbs.component';
+import { SharedModule } from '../../../../../../shared/shared.module';
+import { SingleServiceComponent } from './single-service/single-service.component';
 
 @Component({
   selector: 'app-services',
-  standalone: false,
+  standalone: true,
+  imports: [SharedModule, BreadcrumbsComponent, SingleServiceComponent],
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss'],
 })
@@ -12,7 +16,7 @@ export class ServicesComponent {
     {
       title: 'خدمات طلاب',
       image: 'assets/images/jpg/services/img1.jpg',
-      route: '/services/students-services',
+      route: '/auth',
     },
     {
       title: 'خدمات إلكترونية',

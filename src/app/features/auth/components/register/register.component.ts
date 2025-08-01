@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SharedModule } from '../../../../shared/shared.module';
 
@@ -21,6 +22,7 @@ export class RegisterComponent {
     'الفرقة الثانية',
     'الفرقة الثالثة',
     'الفرقة الرابعة',
+    'الفرقة الخامسة',
   ];
 
   firstFormGroup: FormGroup;
@@ -31,7 +33,8 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.firstFormGroup = this.fb.group({
       fullName: ['', Validators.required],
@@ -111,9 +114,6 @@ export class RegisterComponent {
     };
 
     this.toastr.success('تم التسجيل بنجاح!', 'نجاح');
+    this.router.navigate(['/portal/student-services']);
   }
-
-  // get authRoutes() {
-  //   return authRoutes;
-  // }
 }

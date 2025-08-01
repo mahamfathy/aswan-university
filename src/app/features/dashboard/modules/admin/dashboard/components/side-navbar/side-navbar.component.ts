@@ -61,12 +61,8 @@ export class SideNavbarComponent {
     {
       name: 'تسجيل الخروج',
       icon: 'logout',
-      route: '/auth',
+      route: '/home',
     },
   ];
   constructor(private router: Router) {}
-  logout() {
-    console.log('Logging out...');
-    // this.router.navigate(['/auth']);
-  }
 }
