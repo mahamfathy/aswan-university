@@ -1,0 +1,87 @@
+<section
+  class="min-h-screen flex items-center justify-center px-4"
+  style="
+    background-image: url('https://myu.aswu.edu.eg/static/core/images/bg.34f06b4daa95.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  "
+>
+  <div
+    class="w-full max-w-md bg-white/80 space-y-6 text-right rounded-[2.75rem] p-8 shadow-[0_4px_12px_#075169]"
+  >
+    <div class="text-center">
+      <h2 class="text-2xl font-bold text-[#075169]">بوابة الخدمات الطلابية</h2>
+      <p class="text-sm text-gray-600 font-medium">
+        نظام ابن الهيثم - جامعة أسوان
+      </p>
+    </div>
+    <form #loginForm="ngForm" class="space-y-4">
+      <div class="flex flex-col">
+        <label class="text-sm text-gray-700 mb-1">اسم المستخدم</label>
+        <input
+          name="username"
+          [(ngModel)]="username"
+          required
+          type="text"
+          placeholder="ادخل اسم المستخدم"
+          class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right shadow-sm"
+          #usernameField="ngModel"
+        />
+        @if ( usernameField.invalid && usernameField.touched) {
+
+        <span class="text-red-600 text-sm mt-1"> يرجى إدخال اسم المستخدم </span>
+        }
+      </div>
+
+      <div class="flex flex-col">
+        <label class="text-sm text-gray-700 mb-1">كلمة المرور</label>
+        <input
+          name="password"
+          [(ngModel)]="password"
+          required
+          type="password"
+          placeholder="ادخل كلمة المرور"
+          class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right shadow-sm"
+          #passwordField="ngModel"
+        />
+        @if ( passwordField.invalid && passwordField.touched) {
+
+        <span class="text-red-600 text-sm mt-1"> كلمة المرور مطلوبة </span>
+        }
+      </div>
+
+      <div class="flex items-center justify-between text-sm">
+        <label class="flex items-center gap-2 text-gray-700">
+          <input
+            type="checkbox"
+            [(ngModel)]="rememberMe"
+            name="rememberMe"
+            class="rounded"
+          />
+          تذكرني
+        </label>
+        <a href="#" class="text-blue-600 hover:underline">نسيت كلمة المرور؟</a>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="w-full py-2 bg-[#075169] text-white rounded-md hover:bg-[#06405b] transition shadow"
+      >
+        تسجيل الدخول
+      </button>
+    </form>
+
+    <p class="text-xs text-gray-500 text-center pt-4">
+      بتسجيل الدخول، أنت توافق على
+      <a href="#" class="text-blue-600 hover:underline"
+        >سياسة الخصوصية وتأمين البيانات</a
+      >
+    </p>
+    <p>
+      للعودة للصفحة الرئيسية
+      <a routerLink="/home" class="text-blue-600 hover:underline"> إضغط هنا</a>
+    </p>
+  </div>
+</section>

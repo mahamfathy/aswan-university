@@ -1,38 +1,26 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  // formType: string = "login";
-  // formTitle: string = "Continue your learning journey with QuizWiz! ";
-  // buttonName: string = "Sign In";
-  // isLoggingIn: boolean = false;
-  // constructor(private _AuthService: AuthService, private _Router: Router) {}
-  // login(formValue: FormGroup) {
-  //   this.isLoggingIn = true;
-  //   this._AuthService.login(formValue.value).subscribe({
-  //     next: (res) => {
-  //       localStorage.setItem("token", res.data.accessToken);
-  //       localStorage.setItem(
-  //         "name",
-  //         res.data.profile.first_name + " " + res.data.profile.last_name
-  //       );
-  //       this._AuthService.getProfile();
-  //     },
-  //     complete: () => {
-  //       this.isLoggingIn = false;
-  //       if (localStorage.getItem("role") === "Instructor") {
-  //         this._Router.navigate(["/dashboard"]);
-  //       } else {
-  //         this._Router.navigate(["/dashboard/student"]);
-  //       }
-  //     },
-  //   });
-  // }
-  // get authRoutes() {
-  //   return authRoutes;
-  // }
+  username: string = '';
+  password: string = '';
+  rememberMe: boolean = false;
+
+  constructor(private toastr: ToastrService) {}
+
+  onSubmit(): void {
+    if (!this.username || !this.password) {
+      this.toastr.error('يرجى إدخال اسم المستخدم وكلمة المرور', 'خطأ');
+      return;
+    }
+
+    this.toastr.success('✅ تسجيل الدخول بنجاح', 'مرحبًا');
+    console.log('المستخدم:', this.username);
+    console.log('تذكرني:', this.rememberMe);
+  }
 }
