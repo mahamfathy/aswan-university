@@ -1,0 +1,180 @@
+<section
+  class="min-h-screen text-right flex flex-col items-center justify-center bg-gray-100 p-4"
+>
+  <div class="w-full max-w-xl text-center mb-8">
+    <h1 class="text-3xl font-extrabold text-[#075169] mb-4">
+      صفحة التسجيل في جامعة أسوان
+    </h1>
+    <p class="text-gray-700 text-lg leading-relaxed">
+      يرجى تعبئة البيانات المطلوبة ورفع الأوراق الرسمية للحصول على بريد إلكتروني
+      جامعي خاص بك.
+    </p>
+  </div>
+  <div class="w-full max-w-xl bg-white rounded-3xl p-8 shadow-lg">
+    <mat-horizontal-stepper class="text-right" [linear]="true" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <h3 class="text-lg font-bold text-[#075169] mb-4">
+            البيانات الأساسية
+          </h3>
+
+          <div class="mb-4">
+            <button
+              mat-button
+              [matMenuTriggerFor]="userTypeMenu"
+              color="primary"
+            >
+              {{ selectedUserType || "اختر نوع المستخدم" }}
+            </button>
+            <mat-menu #userTypeMenu="matMenu">
+              <button
+                mat-menu-item
+                class="text-right"
+                (click)="selectUserType('طالب')"
+              >
+                طالب
+              </button>
+              <button
+                mat-menu-item
+                class="text-right"
+                (click)="selectUserType('باحث دراسات عليا')"
+              >
+                باحث دراسات عليا
+              </button>
+            </mat-menu>
+          </div>
+          @if ( selectedUserType) {
+          <mat-form-field appearance="fill" class="w-full mb-4">
+            <mat-label>الاسم الرباعي (بالعربي)</mat-label>
+            <input
+              matInput
+              formControlName="fullName"
+              required
+              class="text-right"
+            />
+            @if ( firstFormGroup.get('fullName')?.hasError('required')) {
+            <mat-error> هذا الحقل مطلوب </mat-error>
+            }
+          </mat-form-field>
+          } @if ( selectedUserType) {
+          <mat-form-field appearance="fill" class="w-full text-right mb-4">
+            <mat-label>الكلية المنتسب لها</mat-label>
+            <mat-select
+              formControlName="faculty"
+              (selectionChange)="onFacultyChange($event.value)"
+            >
+              @for (faculty of faculties; track faculty) {
+              <mat-option [value]="faculty">{{ faculty }}</mat-option>
+              }
+            </mat-select>
+            @if ( firstFormGroup.get('faculty')?.hasError('required')) {
+            <mat-error> هذا الحقل مطلوب </mat-error>
+            }
+          </mat-form-field>
+          } @if(showYearField){
+          <mat-form-field appearance="fill" class="w-full text-right mb-4">
+            <mat-label>السنة الدراسية</mat-label>
+            <mat-select formControlName="year">
+              @for (year of years; track year) {
+              <mat-option [value]="year">{{ year }}</mat-option>
+              }
+            </mat-select>
+            @if ( firstFormGroup.get('year')?.hasError('required')) {
+            <mat-error> هذا الحقل مطلوب </mat-error>
+            }
+          </mat-form-field>
+          }
+          <div class="text-left">
+            <button mat-raised-button color="primary" (click)="stepper.next()">
+              التالي
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <h3 class="text-lg font-bold text-[#075169] mb-4">
+            رفع الأوراق المطلوبة
+          </h3>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >وجه الكارنيه الجامعي</label
+            >
+            <input type="file" (change)="uploadFile($event, 'cardFront')" />
+            @if ( uploadedFiles['cardFront']) {
+
+            <div class="mt-2">
+              <img
+                [src]="uploadedFiles['cardFront']"
+                alt="وجه الكارنيه"
+                class="w-40 rounded shadow"
+              />
+            </div>
+            }
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >ظهر الكارنيه الجامعي</label
+            >
+            <input type="file" (change)="uploadFile($event, 'cardBack')" />
+            @if ( uploadedFiles['cardBack']) {
+            <div class="mt-2">
+              <img
+                [src]="uploadedFiles['cardBack']"
+                alt="ظهر الكارنيه"
+                class="w-40 rounded shadow"
+              />
+            </div>
+            }
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >البطاقة الشخصية</label
+            >
+            <input type="file" (change)="uploadFile($event, 'nationalID')" />
+            @if ( uploadedFiles['nationalID']) {
+
+            <div class="mt-2">
+              <img
+                [src]="uploadedFiles['nationalID']"
+                alt="البطاقة الشخصية"
+                class="w-40 rounded shadow"
+              />
+            </div>
+            }
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >ظهر البطاقة الشخصية</label
+            >
+            <input
+              type="file"
+              (change)="uploadFile($event, 'nationalIDBack')"
+            />
+            @if ( uploadedFiles['nationalIDBack']) {
+
+            <div class="mt-2">
+              <img
+                [src]="uploadedFiles['nationalIDBack']"
+                alt="ظهر البطاقة الشخصية"
+                class="w-40 rounded shadow"
+              />
+            </div>
+            }
+          </div>
+
+          <div class="flex justify-between">
+            <button mat-button (click)="stepper.previous()">السابق</button>
+            <button mat-raised-button color="primary" (click)="submit()">
+              تسجيل
+            </button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</section>
