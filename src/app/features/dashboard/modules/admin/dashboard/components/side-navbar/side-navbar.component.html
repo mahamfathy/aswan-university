@@ -14,8 +14,10 @@
 </button>
 
 <aside
-  class="fixed top-0 left-0 h-full bg-[#075169] text-white p-4 shadow-lg z-40 transform transition-transform duration-300 w-64 sm:w-52 -translate-x-full md:translate-x-0"
-  [ngClass]="{ '-translate-x-0': isMenuOpen, 'md:-translate-x-0': true }"
+  class="fixed top-0 left-0 h-full bg-[#075169] text-white p-4 shadow-lg z-40 transform transition-transform duration-300 w-64 sm:w-52 md:translate-x-0"
+  [ngClass]="{
+    '-translate-x-full': !isMenuOpen
+  }"
 >
   <div class="flex flex-col items-center mb-2">
     <img

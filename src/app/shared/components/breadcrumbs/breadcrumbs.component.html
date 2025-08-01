@@ -11,11 +11,9 @@
         }}</a>
         <span>/</span>
       </ng-container>
+      } @if (!crumb.routerLink || last) {
+      <span [class.font-semibold]="last">{{ crumb.label }}</span>
       }
-
-      <ng-container *ngIf="!crumb.routerLink || last">
-        <span [class.font-semibold]="last">{{ crumb.label }}</span>
-      </ng-container>
     </li>
     }
   </ol>

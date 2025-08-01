@@ -46,9 +46,11 @@
             [routerLink]="link.route"
             class="flex items-center gap-2 hover:text-white hover:bg-[#033D52] transition"
           >
+            @if(link.label!=="الرئيسية"){
             <i
               class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs transition-transform duration-300 group-hover:rotate-180"
-            ></i>
+            ></i
+            >}
             {{ link.label }}
           </a>
           @if (link.hasDropdown ) {

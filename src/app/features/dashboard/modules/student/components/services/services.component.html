@@ -5,9 +5,10 @@
       { label: 'Services', routerLink: '/services' }
     ]"
   />
-  <div class="grid justify-items-center grid-cols-4 gap-4 px-32 my-16">
+  <div
+    class="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-32 my-16"
+  >
     @for (service of services; track service) {
-
     <app-single-service
       [service]="service"
       (serviceClicked)="navigateToService(service.route)"
