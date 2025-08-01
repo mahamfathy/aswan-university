@@ -2,7 +2,7 @@
   class="sticky top-0 z-50 bg-gradient-to-r from-[#054F67] via-[#054F67] to-[#054F67] text-white shadow-[0px_5px_11px_0px_#033D52]"
 >
   <div
-    class="max-w-7xl mx-auto px-4 py-4 flex-row-reverse flex justify-center sm:justify-end items-center"
+    class="max-w-7xl mx-auto px-4 py-4 flex-row-reverse flex justify-start sm:justify-start items-center"
   >
     <!-- Mobile menu button -->
     <button
@@ -35,175 +35,40 @@
     </button>
 
     <!-- Desktop Navigation -->
+
     <nav class="hidden md:block">
       <ul
         class="flex gap-6 flex-wrap justify-center text-sm text-[#F5DEB3] font-medium"
       >
-        <li>
-          <a
-            routerLink="/home"
-            class="hover:bg-[#033D52] hover:text-white transition"
-            >الرئيسية</a
-          >
-        </li>
-        <li>
-          <a
-            routerLink="/about"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >عن الجامعة
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/departments"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >الأقسام
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/faculties"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >الكليات والبرامج
-
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/search"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >البحث العلمي
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i>
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/services"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >الخدمات
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/news"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >الأخبار
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/life"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >الحياة الجامعية
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/departments"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >الأقسام
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/admissions"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >القبول
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
-        <li>
-          <a
-            routerLink="/contact"
-            class="hover:text-white hover:bg-[#033D52] transition"
-            >تواصل معنا
-            <i
-              class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs"
-            ></i
-          ></a>
-        </li>
+        @for (link of navLinks; track link) {
         <li class="relative group hover:bg-[#033D52]">
           <a
-            routerLink="/portal"
-            class="hover:text-white transition flex items-center gap-2 cursor-pointer"
+            [routerLink]="link.route"
+            class="flex items-center gap-2 hover:text-white hover:bg-[#033D52] transition"
           >
-            البوابة الطلابية
             <i
               class="fas fa-caret-down transition-transform duration-300 group-hover:rotate-180text-[#F5DEB3] text-xs transition-transform duration-300 group-hover:rotate-180"
             ></i>
+            {{ link.label }}
           </a>
+          @if (link.hasDropdown ) {
           <ul
-            class="absolute hover:bg-[#033D52] -right-4 top-full mt-2 w-56 bg-[#054F67] shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+            class="absolute -right-4 top-full mt-2 w-56 bg-[#054F67] shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
           >
+            @for (item of link.dropdownItems; track item) {
             <li>
               <a
-                routerLink="/portal/student-services"
+                [routerLink]="item.route"
                 class="block px-4 py-2 text-[#F5DEB3] hover:bg-[#033D52] hover:text-white transition"
-                >خدمات طلابيه</a
               >
+                {{ item.label }}
+              </a>
             </li>
-            <li>
-              <a
-                routerLink="/portal/faculty-services"
-                class="block px-4 py-2 text-[#F5DEB3] hover:bg-[#033D52] hover:text-white transition"
-                >خدمات أعضاء هيئة التدريس</a
-              >
-            </li>
-            <li>
-              <a
-                routerLink="/portal/admin-services"
-                class="block px-4 py-2 text-[#F5DEB3] hover:bg-[#033D52] hover:text-white transition"
-                >خدمات الإداريين</a
-              >
-            </li>
-            <li>
-              <a
-                routerLink="/portal/medical-services"
-                class="block px-4 py-2 text-[#F5DEB3] hover:bg-[#033D52] hover:text-white transition"
-                >الخدمات الطبيه</a
-              >
-            </li>
-            <li>
-              <a
-                routerLink="/portal/parent-services"
-                class="block px-4 py-2 text-[#F5DEB3] hover:bg-[#033D52] hover:text-white transition"
-                >خدمات ولي الأمر</a
-              >
-            </li>
-            <li>
-              <a
-                routerLink="/portal/graduates-services"
-                class="block px-4 py-2 text-[#F5DEB3] hover:bg-[#033D52] hover:text-white transition"
-                >خدمات الخريجين</a
-              >
-            </li>
+            }
           </ul>
+          }
         </li>
+        }
       </ul>
     </nav>
   </div>
@@ -232,7 +97,7 @@
           routerLink="/student/about"
           (click)="isMenuOpen = false"
           class="hover:text-white transition"
-          >عن الأكاديمية</a
+          >عن الجامعة</a
         >
       </li>
       <li>
