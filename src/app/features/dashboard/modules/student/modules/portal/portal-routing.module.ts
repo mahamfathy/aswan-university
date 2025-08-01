@@ -7,10 +7,6 @@ import { MedicalServicesComponent } from './components/medical-services/medical-
 import { ParentServicesComponent } from './components/parent-services/parent-services.component';
 import { StudentServicesComponent } from './components/student-services/student-services.component';
 import { PortalComponent } from './portal.component';
-// import { userGuard } from '../../core/guards/user/user.guard';
-// import { exploreRoomWithFiltersResolver } from './resolvers/explore-room-with-filters.resolver';
-// import { favoriteRoomsResolver } from './resolvers/favorite-rooms.resolver';
-// import { RoomDetailsComponent } from './home/components/room-details/room-details.component';
 
 const routes: Routes = [
   {
@@ -23,16 +19,6 @@ const routes: Routes = [
       { path: 'medical-services', component: MedicalServicesComponent },
       { path: 'parent-services', component: ParentServicesComponent },
       { path: 'graduates-services', component: GraduatesServicesComponent },
-      // {
-      //   path: 'portal',
-      //   component: PortalComponent,
-      // resolve: { filters: exploreRoomWithFiltersResolver },
-      // },
-      // {
-      //   path: 'favorites',
-      //   component: FavRoomsComponent,
-      //   canActivate: [userGuard],
-      //   resolve: { filters: favoriteRoomsResolver },
     ],
   },
 ];
