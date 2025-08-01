@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -11,13 +9,18 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
+      {
+        path: 'home',
+        component: HomeComponent,
+        data: { animation: 'HomePage' },
+      },
       {
         path: 'notifications',
         loadComponent: () =>
           import('./components/notifications/notifications.component').then(
             (c) => c.NotificationsComponent
           ),
+        data: { animation: 'notificationsPage' },
       },
       {
         path: 'requests',
@@ -25,6 +28,7 @@ const routes: Routes = [
           import('./components/requests/requests.component').then(
             (c) => c.RequestsComponent
           ),
+        data: { animation: 'RequestsPage' },
       },
       {
         path: 'scholarships',
@@ -32,27 +36,7 @@ const routes: Routes = [
           import('./components/scholarships/scholarships.component').then(
             (c) => c.ScholarshipsComponent
           ),
-      },
-      {
-        path: 'reports',
-        loadComponent: () =>
-          import('./components/reports/reports.component').then(
-            (c) => c.ReportsComponent
-          ),
-      },
-      {
-        path: 'services',
-        loadComponent: () =>
-          import('./components/services/services.component').then(
-            (c) => c.ServicesComponent
-          ),
-      },
-      {
-        path: 'news',
-        loadComponent: () =>
-          import('./components/news/news.component').then(
-            (c) => c.NewsComponent
-          ),
+        data: { animation: 'ScholarshipsPage' },
       },
       {
         path: 'feedback',
@@ -60,10 +44,33 @@ const routes: Routes = [
           import('./components/feedback/feedback.component').then(
             (c) => c.FeedbackComponent
           ),
+        data: { animation: 'FeedbackPage' },
       },
-      { path: 'profile/:id', component: ProfileComponent },
-      { path: 'change-password', component: ChangePasswordComponent },
-      // { path: '**', redirectTo: '/dashboard/home' },
+
+      {
+        path: 'reports',
+        loadComponent: () =>
+          import('./components/reports/reports.component').then(
+            (c) => c.ReportsComponent
+          ),
+        data: { animation: 'reportsPage' },
+      },
+      {
+        path: 'services',
+        loadComponent: () =>
+          import('./components/services/services.component').then(
+            (c) => c.ServicesComponent
+          ),
+        data: { animation: 'servicesPage' },
+      },
+      {
+        path: 'news',
+        loadComponent: () =>
+          import('./components/news/news.component').then(
+            (c) => c.NewsComponent
+          ),
+        data: { animation: 'newsPage' },
+      },
     ],
   },
 ];
