@@ -4,7 +4,6 @@ import { SharedModule } from '../../shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ResetRequestPasswordComponent } from './components/reset-request-password/reset-request-password.component';
 @NgModule({
@@ -13,7 +12,6 @@ import { ResetRequestPasswordComponent } from './components/reset-request-passwo
     ResetPasswordComponent,
     ChangePasswordComponent,
     LoginComponent,
-    RegisterComponent,
   ],
   imports: [CommonModule, AuthRoutingModule, SharedModule],
 })

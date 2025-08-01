@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 // import { NgxDropzoneModule } from 'ngx-dropzone';
+import { MatStepperModule } from '@angular/material/stepper';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -71,6 +72,7 @@ import { TableComponent } from './components/table/table.component';
     // NgxDropzoneModule,
     MatDatepickerModule,
     MatSlideToggleModule,
+    MatStepperModule,
     CommonModule,
   ],
   exports: [
@@ -102,6 +104,7 @@ import { TableComponent } from './components/table/table.component';
     MatSlideToggleModule,
     MatSlideToggleModule,
     PageNotFoundComponent,
+    MatStepperModule,
     CommonModule,
     HeaderComponent,
     FooterComponent,
