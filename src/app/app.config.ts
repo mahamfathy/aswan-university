@@ -10,8 +10,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimations(),
-    // provideAnimationsAsync(),
-    provideAnimations(),
     provideToastr({
       positionClass: 'toast-top-right',
       timeOut: 3000,
