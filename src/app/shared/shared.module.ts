@@ -22,28 +22,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-// import { NgxDropzoneModule } from 'ngx-dropzone';
-import { MatStepperModule } from '@angular/material/stepper';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
-import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { TableComponent } from './components/table/table.component';
 @NgModule({
-  declarations: [
-    TableComponent,
-    DeleteItemComponent,
-    FooterComponent,
-    HeaderComponent,
-    LogoComponent,
-    BreadcrumbsComponent,
-    PageNotFoundComponent,
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     RouterModule,
@@ -69,11 +57,14 @@ import { TableComponent } from './components/table/table.component';
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
-    // NgxDropzoneModule,
     MatDatepickerModule,
     MatSlideToggleModule,
     MatStepperModule,
     CommonModule,
+    BreadcrumbsComponent,
+    HeaderComponent,
+    LogoComponent,
+    FooterComponent,
   ],
   exports: [
     RouterModule,
@@ -94,22 +85,19 @@ import { TableComponent } from './components/table/table.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    TableComponent,
     MatDialogActions,
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
-    // NgxDropzoneModule,
     MatDatepickerModule,
     MatSlideToggleModule,
     MatSlideToggleModule,
-    PageNotFoundComponent,
     MatStepperModule,
     CommonModule,
-    HeaderComponent,
-    FooterComponent,
-    LogoComponent,
     BreadcrumbsComponent,
+    HeaderComponent,
+    LogoComponent,
+    FooterComponent,
   ],
 })
 export class SharedModule {}

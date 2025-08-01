@@ -19,15 +19,7 @@ import { PortalComponent } from './portal.component';
     MedicalServicesComponent,
     ParentServicesComponent,
     StudentServicesComponent,
-    // LoginRegisterDialogComponent,
-    // FavRoomsComponent,
   ],
-  imports: [
-    CommonModule,
-    PortalRoutingModule,
-
-    // ExploreComponent
-    SharedModule,
-  ],
+  imports: [CommonModule, PortalRoutingModule, SharedModule],
 })
 export class PortalModule {}

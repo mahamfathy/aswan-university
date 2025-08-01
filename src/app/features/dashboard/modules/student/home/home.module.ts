@@ -1,10 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatStepperModule } from '@angular/material/stepper';
-// import { TranslateModule } from '@ngx-translate/core';
-// import { QuillModule } from 'ngx-quill';
-// import { NgxStripeModule } from 'ngx-stripe';
-import { NgOptimizedImage } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { SharedModule } from '../../../../../shared/shared.module';
 import { CollegesComponent } from './components/colleges/colleges.component';
@@ -27,7 +23,6 @@ import { HomeComponent } from './home.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    // TranslateModule,
     NgOptimizedImage,
     CommonModule,
     CarouselModule,
