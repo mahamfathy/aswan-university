@@ -3,12 +3,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { SharedModule } from '../../../../shared/shared.module';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
-  imports: [SharedModule],
+  standalone: false,
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })

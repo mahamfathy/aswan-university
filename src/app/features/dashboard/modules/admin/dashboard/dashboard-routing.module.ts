@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
-        data: { animation: 'HomePage' },
+        data: { animation: 'PageTransition' },
       },
       {
         path: 'notifications',
@@ -20,7 +20,7 @@ const routes: Routes = [
           import('./components/notifications/notifications.component').then(
             (c) => c.NotificationsComponent
           ),
-        data: { animation: 'notificationsPage' },
+        data: { animation: 'PageTransition' },
       },
       {
         path: 'requests',
@@ -28,7 +28,7 @@ const routes: Routes = [
           import('./components/requests/requests.component').then(
             (c) => c.RequestsComponent
           ),
-        data: { animation: 'RequestsPage' },
+        data: { animation: 'PageTransition' },
       },
       {
         path: 'scholarships',
@@ -36,7 +36,8 @@ const routes: Routes = [
           import('./components/scholarships/scholarships.component').then(
             (c) => c.ScholarshipsComponent
           ),
-        data: { animation: 'ScholarshipsPage' },
+
+        data: { animation: 'PageTransition' },
       },
       {
         path: 'feedback',
@@ -44,7 +45,7 @@ const routes: Routes = [
           import('./components/feedback/feedback.component').then(
             (c) => c.FeedbackComponent
           ),
-        data: { animation: 'FeedbackPage' },
+        data: { animation: 'PageTransition' },
       },
 
       {
@@ -53,7 +54,7 @@ const routes: Routes = [
           import('./components/reports/reports.component').then(
             (c) => c.ReportsComponent
           ),
-        data: { animation: 'reportsPage' },
+        data: { animation: 'PageTransition' },
       },
       {
         path: 'services',
@@ -61,7 +62,7 @@ const routes: Routes = [
           import('./components/services/services.component').then(
             (c) => c.ServicesComponent
           ),
-        data: { animation: 'servicesPage' },
+        data: { animation: 'PageTransition' },
       },
       {
         path: 'news',
@@ -69,7 +70,7 @@ const routes: Routes = [
           import('./components/news/news.component').then(
             (c) => c.NewsComponent
           ),
-        data: { animation: 'newsPage' },
+        data: { animation: 'PageTransition' },
       },
     ],
   },

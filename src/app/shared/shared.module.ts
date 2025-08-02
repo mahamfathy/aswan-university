@@ -30,8 +30,15 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 @NgModule({
-  declarations: [],
+  declarations: [
+    BreadcrumbsComponent,
+    HeaderComponent,
+    LogoComponent,
+    FooterComponent,
+    PageNotFoundComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -61,10 +68,6 @@ import { LogoComponent } from './components/logo/logo.component';
     MatSlideToggleModule,
     MatStepperModule,
     CommonModule,
-    BreadcrumbsComponent,
-    HeaderComponent,
-    LogoComponent,
-    FooterComponent,
   ],
   exports: [
     RouterModule,
@@ -98,6 +101,7 @@ import { LogoComponent } from './components/logo/logo.component';
     HeaderComponent,
     LogoComponent,
     FooterComponent,
+    PageNotFoundComponent,
   ],
 })
 export class SharedModule {}

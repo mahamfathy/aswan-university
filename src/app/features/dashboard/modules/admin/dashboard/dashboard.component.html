@@ -5,11 +5,8 @@
 
   <main class="flex-1 overflow-auto">
     <app-logo />
-
-    <main class="flex-1 overflow-auto min-h-screen">
-      <div [@routeAnimations]="prepareRoute(outlet)">
-        <router-outlet #outlet="outlet"></router-outlet>
-      </div>
-    </main>
+    <section [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </section>
   </main>
 </div>

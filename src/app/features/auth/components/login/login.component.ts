@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { SharedModule } from '../../../../shared/shared.module';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [SharedModule],
+  standalone: false,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
