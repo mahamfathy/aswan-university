@@ -17,6 +17,17 @@ import { RouterOutlet } from '@angular/router';
     trigger('routeAnimations', [
       transition('* <=> *', [
         query(
+          ':leave',
+          [
+            animate(
+              '300ms cubic-bezier(0.4, 0.0, 0.2, 1)',
+              style({ opacity: 0 })
+            ),
+          ],
+          { optional: true }
+        ),
+
+        query(
           ':enter',
           [
             style({ opacity: 0 }),
@@ -27,23 +38,12 @@ import { RouterOutlet } from '@angular/router';
           ],
           { optional: true }
         ),
-
-        query(
-          ':leave',
-          [
-            animate(
-              '300ms cubic-bezier(0.4, 0.0, 0.2, 1)',
-              style({ opacity: 0 })
-            ),
-          ],
-          { optional: true }
-        ),
       ]),
     ]),
   ],
 })
 export class DashboardComponent {
   prepareRoute(outlet: RouterOutlet) {
-    return outlet?.activatedRouteData?.['animation'] || 'PageTransition';
+    return outlet?.activatedRouteData?.['animation'] ?? 'PageTransition';
   }
 }

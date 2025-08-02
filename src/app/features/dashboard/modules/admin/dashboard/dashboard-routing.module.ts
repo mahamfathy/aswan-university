@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { NewsComponent } from './components/news/news.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { RequestsComponent } from './components/requests/requests.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -16,18 +19,12 @@ const routes: Routes = [
       },
       {
         path: 'notifications',
-        loadComponent: () =>
-          import('./components/notifications/notifications.component').then(
-            (c) => c.NotificationsComponent
-          ),
+        component: NotificationsComponent,
         data: { animation: 'PageTransition' },
       },
       {
         path: 'requests',
-        loadComponent: () =>
-          import('./components/requests/requests.component').then(
-            (c) => c.RequestsComponent
-          ),
+        component: RequestsComponent,
         data: { animation: 'PageTransition' },
       },
       {
@@ -66,10 +63,7 @@ const routes: Routes = [
       },
       {
         path: 'news',
-        loadComponent: () =>
-          import('./components/news/news.component').then(
-            (c) => c.NewsComponent
-          ),
+        component: NewsComponent,
         data: { animation: 'PageTransition' },
       },
     ],

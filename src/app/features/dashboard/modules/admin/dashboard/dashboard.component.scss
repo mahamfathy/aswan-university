@@ -1,0 +1,7 @@
+section {
+  position: relative;
+}
+router-outlet ~ * {
+  position: absolute;
+  width: 100%;
+}
